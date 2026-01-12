@@ -1,0 +1,338 @@
+Here are **15+ field `type` values** you can standardise in your config to trigger different UI components in your table + forms (like your `uauc`, `workpermit`, etc.). I’ll keep names consistent with what you already use (`imageLink`, `subString`, etc.).
+
+---
+
+## 1. `"text"`
+
+* **Use for:** Single-line text.
+* **UI:** `<input type="text" />`
+* **Example:**
+
+  ```json
+  { "label": "Area", "field": "area", "type": "text", "filter": "true" }
+  ```
+
+---
+
+## 2. `"textarea"`
+
+* **Use for:** Long text / descriptions / comments.
+* **UI:** `<textarea>` with auto height in form, truncated + “Read more” in table.
+* **Example:**
+
+  ```json
+  { "label": "Observation", "field": "observation", "type": "textarea" }
+  ```
+
+---
+
+## 3. `"number"`
+
+* **Use for:** Quantity, score, numeric fields.
+* **UI:** `<input type="number" />`, supports `min`, `max`, `step`.
+* **Example:**
+
+  ```json
+  { "label": "Quantity", "field": "qty", "type": "number" }
+  ```
+
+---
+
+## 4. `"dropdown"`
+
+* **Use for:** Single-select from fixed list or API list.
+* **UI:** `<select>` or custom select.
+* **Supports:**
+
+  * `options: []` (static)
+  * or `api`, `apiTitle` (dynamic)
+* **Example (static):**
+
+  ```json
+  {
+    "label": "Status",
+    "field": "status",
+    "type": "dropdown",
+    "options": ["Open", "Closed"],
+    "filter": "true"
+  }
+  ```
+
+---
+
+## 5. `"checkbox"` (multi-select)
+
+* **Use for:** Multi-select values (hazards, assignedTo, etc.).
+* **UI:** Popup checklist / chips.
+* **Pattern:** `array: "true"` + `api`/`options`.
+* **Example:**
+
+  ```json
+  {
+    "label": "Hazards",
+    "field": "hazards.hazards",
+    "type": "checkbox",
+    "array": "true",
+    "api": "https://jkumarapi.axiomos.in/hazards",
+    "apiTitle": "hazards"
+  }
+  ```
+
+---
+
+## 6. `"boolean"`
+
+* **Use for:** Yes/No or True/False flags.
+* **UI:** Toggle switch / checkbox.
+* **Example:**
+
+  ```json
+  {
+    "label": "Is Critical?",
+    "field": "isCritical",
+    "type": "boolean",
+    "filter": "true"
+  }
+  ```
+
+---
+
+## 7. `"Date"`
+
+* **Use for:** Date-only inputs.
+* **UI:** `<input type="date" />`, date picker.
+* **Example:**
+
+  ```json
+  { "label": "Date", "field": "date", "type": "Date", "filter": "true" }
+  ```
+
+---
+
+## 8. `"Time"`
+
+* **Use for:** Time-of-day.
+* **UI:** `<input type="time" />`.
+* **Example:**
+
+  ```json
+  { "label": "Time", "field": "time", "type": "Time", "filter": "true" }
+  ```
+
+---
+
+## 9. `"DateTime"`
+
+* **Use for:** Both date & time in one field (incident timestamp, etc.).
+* **UI:** Date-time picker.
+* **Example:**
+
+  ```json
+  {
+    "label": "Incident DateTime",
+    "field": "incidentAt",
+    "type": "DateTime",
+    "filter": "true"
+  }
+  ```
+
+---
+
+## 10. `"imageLink"`
+
+* **Use for:** Image URL + upload (photos, evidence, etc.).
+* **UI:** Thumbnail preview in table, modal on click; upload button in form.
+* **Example:**
+
+  ```json
+  {
+    "label": "Photo",
+    "field": "photo",
+    "type": "imageLink",
+    "uploadApi": "https://jkumarapi.axiomos.in/uauc/image"
+  }
+  ```
+
+---
+
+## 11. `"file"`
+
+* **Use for:** Non-image files (PDF, Excel, Docs, etc.).
+* **UI:** Icon + filename; download/view button; upload in form.
+* **Example:**
+
+  ```json
+  {
+    "label": "Attachment",
+    "field": "attachment",
+    "type": "file",
+    "uploadApi": "https://jkumarapi.axiomos.in/uauc/file"
+  }
+  ```
+
+---
+
+## 12. `"signature"`
+
+* **Use for:** Digital signatures (Permit issuer, approver, etc.).
+* **UI:** Signature pad in form; image preview in table.
+* **Example:**
+
+  ```json
+  {
+    "label": "Approver Signature",
+    "field": "approverSignature",
+    "type": "signature",
+    "uploadApi": "https://jkumarapi.axiomos.in/signature/upload"
+  }
+  ```
+
+---
+
+## 13. `"geolocation"`
+
+* **Use for:** Lat/Lng geotagging.
+* **UI:** Map picker in form; small map / “Open in Maps” in details modal.
+* **Example:**
+
+  ```json
+  {
+    "label": "Geotag",
+    "field": "geotagging",
+    "type": "geolocation"
+  }
+  ```
+
+---
+
+## 14. `"tags"` (chips)
+
+* **Use for:** Free-form labels / keywords / multiple short strings.
+* **UI:** Chips with add/remove; input with Enter to add tag.
+* **Example:**
+
+  ```json
+  {
+    "label": "Keywords",
+    "field": "keywords",
+    "type": "tags",
+    "array": "true"
+  }
+  ```
+
+---
+
+## 15. `"rating"`
+
+* **Use for:** 1–5 rating (risk level, severity score, etc. if numeric).
+* **UI:** Stars or numeric slider.
+* **Example:**
+
+  ```json
+  {
+    "label": "Severity Rating",
+    "field": "severityRating",
+    "type": "rating",
+    "min": 1,
+    "max": 5
+  }
+  ```
+
+---
+
+## 16. `"email"`
+
+* **Use for:** Email IDs with validation.
+* **UI:** `<input type="email" />`; validation on blur.
+* **Example:**
+
+  ```json
+  {
+    "label": "Email",
+    "field": "emailId",
+    "type": "email"
+  }
+  ```
+
+---
+
+## 17. `"phone"`
+
+* **Use for:** Phone numbers / mobile numbers.
+* **UI:** `<input type="tel" />`; optional pattern validation.
+* **Example:**
+
+  ```json
+  {
+    "label": "Phone",
+    "field": "phone",
+    "type": "phone"
+  }
+  ```
+
+---
+
+## 18. `"password"`
+
+* **Use for:** Password fields in user/portal configs.
+* **UI:** `<input type="password" />` with show/hide.
+* **Example:**
+
+  ```json
+  {
+    "label": "Password",
+    "field": "password",
+    "type": "password",
+    "edit": "false"
+  }
+  ```
+
+---
+
+## 19. `"subString"` (array of sub-rows)
+
+* **Use for:** Mini tables inside one field (like your DailyPlan / MonthlyPlan material or milestones).
+* **UI:** Scrollable sub-table in details; inline array editor in form.
+* **Uses:** `subFields` array.
+* **Example:**
+
+  ```json
+  {
+    "label": "Material",
+    "field": "material",
+    "type": "subString",
+    "subFields": [
+      { "label": "Material", "field": "material", "type": "dropdown", "api": "/materials", "apiTitle": "itemName" },
+      { "label": "Planned Qty", "field": "plannedQty", "type": "number" },
+      { "label": "Achieved Qty", "field": "achievedQty", "type": "number" }
+    ]
+  }
+  ```
+
+---
+
+## 20. `"safetychecks"` / `"permitchecklists"`
+
+* **Use for:** Special checklists with `subFields` (you’re already using in `TableRowDetailsModal`).
+* **UI:** Sub-table with checkboxes / status / remarks.
+* **Example:**
+
+  ```json
+  {
+    "label": "Safety Checks",
+    "field": "safetyChecks",
+    "type": "safetychecks",
+    "subFields": [
+      { "label": "Check Point", "field": "point", "type": "text" },
+      { "label": "Status", "field": "status", "type": "dropdown", "options": ["OK", "NOT OK", "NA"] },
+      { "label": "Photo", "field": "photo", "type": "imageLink", "uploadApi": "/safety/photo" }
+    ]
+  }
+  ```
+
+---
+
+If you want, next step I can help you:
+
+* Design a **`type → component` map** for your shared `FieldRenderer` / `TableCellRenderer`, or
+* Take one module (e.g. `uauc` or `workpermit`) and refactor the JSON with these types cleanly.

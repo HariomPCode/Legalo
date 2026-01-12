@@ -1,0 +1,14 @@
+{
+  "title": "Scheduled Events",
+  "columns": [
+    { "label": "Title", "field": "title", "type": "text" },
+    { "label": "Description", "field": "description", "type": "textarea" },
+    {
+      "label": "Category",
+      "field": "category",
+      "type": "dropdown",
+      "options": ["Audit", "Inspection", "Meeting"]
+    },
+    { "label": "Start Date", "field": "startDate", "type": "Date" }
+  ]
+}
