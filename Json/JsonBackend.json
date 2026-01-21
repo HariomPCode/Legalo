@@ -1,0 +1,1904 @@
+{
+  "_id": "69663df963ca61261af88f24",
+  "name": "legaloAiPanelFrontend",
+  "data": {
+    "0": {
+      "page": "navbar",
+      "id": "0",
+      "logo": "/icon/a-b-2.svg",
+      "CompanyLogo": "https://www.legalo.in/images/logo.png",
+      "Api": "https://legalobackend.axiomos.in",
+      "menu": [
+        {
+          "icon": "fa-play-circle",
+          "name": "Home",
+          "link": "/"
+        },
+        {
+          "icon": "fa-project-diagram",
+          "name": "Project Overview",
+          "link": "/project-dashboard"
+        },
+        {
+          "icon": "fa-bell",
+          "name": "Notifications",
+          "link": "/table/notifications"
+        },
+        {
+          "icon": "fa-folder-open",
+          "name": "File Manager",
+          "link": "/files"
+        },
+        {
+          "icon": "fa-chart-line",
+          "name": "Analytics Dashboard",
+          "link": "https://jkumardashboard.axiomos.in/"
+        },
+        {
+          "icon": "fa-user-circle",
+          "name": "My Profile",
+          "link": "/profile"
+        },
+        {
+          "icon": "fa-tachometer-alt",
+          "name": "Platform Management",
+          "link": "/management"
+        },
+        {
+          "icon": "fa-sliders-h",
+          "name": "System Settings",
+          "link": "/settings"
+        },
+        {
+          "icon": "fa-life-ring",
+          "name": "Support",
+          "link": "/support"
+        },
+        {
+          "icon": "fa-info-circle",
+          "name": "Help & Info",
+          "link": "/about"
+        },
+        {
+          "icon": "fa-sign-out-alt",
+          "name": "Log Out",
+          "onClick": "logout"
+        }
+      ],
+      "HomeDashboard": [
+        {
+          "icon": "fa-user-group",
+          "name": "Users",
+          "link": "/table/user"
+        },
+        {
+          "icon": "fa-people-carry-box",
+          "name": "Labour Data Pool",
+          "link": "/table/labour"
+        },
+        {
+          "icon": "fa-handshake",
+          "name": "Sub-Contractors",
+          "link": "/table/subcontractors"
+        },
+        {
+          "icon": "fa-file-lines",
+          "name": "Format",
+          "link": "/table/format"
+        }
+      ],
+      "Functions": [
+        {
+          "icon": "fa-building",
+          "category": "Master & Setup",
+          "name": "Organizations",
+          "link": "/table/org",
+          "countApi": "/orgs/count/all"
+        },
+        {
+          "icon": "fa-scale-balanced",
+          "category": "Master & Setup",
+          "name": "DPDP Sections",
+          "link": "/table/dpdp_sections"
+        },
+        {
+          "icon": "fa-users",
+          "category": "Master & Setup",
+          "name": "Users",
+          "link": "/table/user",
+          "countApi": "/users/count/all"
+        },
+        {
+          "icon": "fa-user-group",
+          "category": "Master & Setup",
+          "name": "Organization Memberships",
+          "link": "/table/orgMembership",
+          "countApi": "/orgmemberships/count/all"
+        },
+        {
+          "icon": "fa-building-columns",
+          "category": "Legal Entities",
+          "name": "Companies",
+          "link": "/table/company",
+          "countApi": "/companies/count/all"
+        },
+        {
+          "icon": "fa-id-card",
+          "category": "Legal Entities",
+          "name": "Company Profiles",
+          "link": "/table/companyProfile",
+          "countApi": "/companyprofiles/count/all"
+        },
+        {
+          "icon": "fa-circle-question",
+          "category": "Applicability & Scope",
+          "name": "Applicability Questions",
+          "link": "/table/applicabilityQuestion",
+          "countApi": "/applicabilityquestions/count/all"
+        },
+        {
+          "icon": "fa-check-to-slot",
+          "category": "Applicability & Scope",
+          "name": "Applicability Answers",
+          "link": "/table/companyApplicabilityAnswer",
+          "countApi": "/companyapplicabilityanswers/count/all"
+        },
+        {
+          "icon": "fa-scale-balanced",
+          "category": "Compliance & Obligations",
+          "name": "Obligations",
+          "link": "/table/obligation",
+          "countApi": "/obligations/count/all"
+        },
+        {
+          "icon": "fa-list-check",
+          "category": "Compliance & Obligations",
+          "name": "Company Obligations",
+          "link": "/table/companyObligation",
+          "countApi": "/companyobligations/count/all"
+        },
+        {
+          "icon": "fa-diagram-project",
+          "category": "Knowledge Graph (OKG)",
+          "name": "OKG Nodes",
+          "link": "/table/okgnode",
+          "countApi": "/okgnodes/count/all"
+        },
+        {
+          "icon": "fa-code-branch",
+          "category": "Knowledge Graph (OKG)",
+          "name": "OKG Edges",
+          "link": "/table/okgedge",
+          "countApi": "/okgedges/count/all"
+        },
+        {
+          "icon": "fa-list-check",
+          "category": "Workflow & Tasks",
+          "name": "Task Templates",
+          "link": "/table/taskTemplate",
+          "countApi": "/tasktemplates/count/all"
+        },
+        {
+          "icon": "fa-diagram-next",
+          "category": "Workflow & Tasks",
+          "name": "Workflow Tasks",
+          "link": "/table/workflowTask",
+          "countApi": "/workflowtasks/count/all"
+        },
+        {
+          "icon": "fa-clock-rotate-left",
+          "category": "Workflow & Tasks",
+          "name": "Task Status Events",
+          "link": "/table/taskStatusEvent",
+          "countApi": "/taskstatusevents/count/all"
+        },
+        {
+          "icon": "fa-check-double",
+          "category": "Approvals",
+          "name": "Approvals Matrix",
+          "link": "/table/approvalsMatrix",
+          "countApi": "/approvalsmatrixes/count/all"
+        },
+        {
+          "icon": "fa-stamp",
+          "category": "Approvals",
+          "name": "Approval Instances",
+          "link": "/table/approvalInstance",
+          "countApi": "/approvalinstances/count/all"
+        },
+        {
+          "icon": "fa-bell",
+          "category": "Automation & Jobs",
+          "name": "Reminder Jobs",
+          "link": "/table/reminderJob",
+          "countApi": "/reminderjobs/count/all"
+        },
+        {
+          "icon": "fa-paperclip",
+          "category": "Evidence Management",
+          "name": "Evidence Objects",
+          "link": "/table/evidenceObject",
+          "countApi": "/evidenceobjects/count/all"
+        },
+        {
+          "icon": "fa-link",
+          "category": "Evidence Management",
+          "name": "Evidence Links",
+          "link": "/table/evidenceLink",
+          "countApi": "/evidencelinks/count/all"
+        },
+        {
+          "icon": "fa-circle-check",
+          "category": "Evidence Management",
+          "name": "Evidence Approval Events",
+          "link": "/table/evidenceApprovalEvent",
+          "countApi": "/evidenceapprovalevents/count/all"
+        },
+        {
+          "icon": "fa-gavel",
+          "category": "Citations & Enforcement",
+          "name": "Citation Enforcement Policies",
+          "link": "/table/citationEnforcementPolicy",
+          "countApi": "/citationenforcementpolicies/count/all"
+        },
+        {
+          "icon": "fa-clipboard-check",
+          "category": "Citations & Enforcement",
+          "name": "Citation Validation Logs",
+          "link": "/table/citationValidationLog",
+          "countApi": "/citationvalidationlogs/count/all"
+        },
+        {
+          "icon": "fa-brain",
+          "category": "AI & Intelligence",
+          "name": "LLM Requests",
+          "link": "/table/llmRequest",
+          "countApi": "/llmrequests/count/all"
+        },
+        {
+          "icon": "fa-robot",
+          "category": "AI & Intelligence",
+          "name": "LLM Responses",
+          "link": "/table/llmResponse",
+          "countApi": "/llmresponses/count/all"
+        },
+        {
+          "icon": "fa-folder-tree",
+          "category": "Audit Packs",
+          "name": "Audit Pack Templates",
+          "link": "/table/auditPackTemplate",
+          "countApi": "/auditpacktemplates/count/all"
+        },
+        {
+          "icon": "fa-file-export",
+          "category": "Audit Packs",
+          "name": "Audit Pack Exports",
+          "link": "/table/auditPackExport",
+          "countApi": "/auditpackexports/count/all"
+        },
+        {
+          "icon": "fa-file-lines",
+          "category": "Audit Packs",
+          "name": "Audit Pack Export Items",
+          "link": "/table/auditPackExportItem",
+          "countApi": "/auditpackexportitems/count/all"
+        },
+        {
+          "icon": "fa-book-law",
+          "category": "DPDP Compliance",
+          "name": "DPDP Sections",
+          "link": "/table/dpdp_sections",
+          "countApi": "/dpdp-sections/count/all"
+        },
+        {
+          "icon": "fa-gavel",
+          "category": "DPDP Compliance",
+          "name": "DPDP Citations",
+          "link": "/table/dpdp_citations",
+          "countApi": "/dpdp-citations/count/all"
+        },
+        {
+          "icon": "fa-clipboard-list",
+          "category": "DPDP Compliance",
+          "name": "DPDP Obligations",
+          "link": "/table/dpdp_obligations",
+          "countApi": "/dpdp-obligations/count/all"
+        },
+        {
+          "icon": "fa-link",
+          "category": "DPDP Compliance",
+          "name": "Obligation ↔ Citation Mapping",
+          "link": "/table/dpdp_obligation_citation_map",
+          "countApi": "/dpdp-obligation-citation-map/count/all"
+        },
+        {
+          "icon": "fa-link",
+          "category": "DPDP Compliance",
+          "name": "dpdp_obligation_nodesg",
+          "link": "/table/dpdp_obligation_nodes",
+          "countApi": "/dpdp_obligation_nodes/count/all"
+        }
+      ]
+    },
+    "1": {
+      "page": "admin",
+      "id": "1",
+      "apis": [
+        {
+          "api": "orgs"
+        },
+        {
+          "api": "roles"
+        },
+        {
+          "api": "users"
+        },
+        {
+          "api": "projects"
+        },
+        {
+          "api": "attachments"
+        },
+        {
+          "api": "documenttemplates"
+        },
+        {
+          "api": "documentinstances"
+        },
+        {
+          "api": "workflowtemplates"
+        },
+        {
+          "api": "workflowruns"
+        },
+        {
+          "api": "drawingregisters"
+        },
+        {
+          "api": "itps"
+        },
+        {
+          "api": "inspectionrequests"
+        },
+        {
+          "api": "testreports"
+        },
+        {
+          "api": "materialsubmittals"
+        },
+        {
+          "api": "ncrs"
+        },
+        {
+          "api": "punchlists"
+        },
+        {
+          "api": "dailysitereports"
+        },
+        {
+          "api": "auditreports"
+        }
+      ],
+      "tableConfigs": {
+        "dpdp_section": {
+          "api": "https://legalobackend.axiomos.in/dpdp_sections",
+          "title": "DPDP Sections",
+          "route": "dpdp-sections",
+          "columns": [
+            {
+              "label": "Section",
+              "field": "section",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Category",
+              "field": "category",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Title",
+              "field": "title",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Description",
+              "field": "description",
+              "type": "text",
+              "filter": false
+            },
+            {
+              "label": "Order",
+              "field": "order",
+              "type": "number",
+              "filter": true
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": true
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": true
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "org": {
+          "api": "https://legalobackend.axiomos.in/orgs",
+          "title": "Organizations",
+          "columns": [
+            {
+              "label": "Organization Name",
+              "field": "name",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Organization Code",
+              "field": "code",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Address",
+              "field": "address",
+              "type": "textarea"
+            },
+            {
+              "label": "Contact Email",
+              "field": "contactEmail",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Contact Phone",
+              "field": "contactPhone",
+              "type": "number",
+              "filter": "true"
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": "true"
+            }
+          ]
+        },
+        "project": {
+          "api": "https://legalobackend.axiomos.in/projects",
+          "title": "Projects",
+          "columns": [
+            {
+              "label": "Organization",
+              "field": "orgId.name",
+              "type": "dropdown",
+              "api": "https://legalobackend.axiomos.in/orgs",
+              "apiTitle": "name",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Project Name",
+              "field": "projectName",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Project Code",
+              "field": "projectCode",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Client Name",
+              "field": "clientName",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Consultant Name",
+              "field": "consultantName",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Location",
+              "field": "locationText",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Start Date",
+              "field": "startDate",
+              "type": "Date",
+              "filter": "true"
+            },
+            {
+              "label": "End Date",
+              "field": "endDate",
+              "type": "Date",
+              "filter": "true"
+            },
+            {
+              "label": "Status",
+              "field": "status",
+              "type": "dropdown",
+              "options": ["active", "onhold", "closed"],
+              "filter": "true"
+            },
+            {
+              "label": "Geofence Enabled",
+              "field": "geoFence.enabled",
+              "type": "boolean",
+              "filter": "true"
+            },
+            {
+              "label": "Geofence Radius (m)",
+              "field": "geoFence.radiusMeters",
+              "type": "number"
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": "true"
+            }
+          ]
+        },
+        "user": {
+          "api": "https://legalobackend.axiomos.in/users",
+          "title": "Users",
+          "route": "users",
+          "columns": [
+            {
+              "label": "Name",
+              "field": "name",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Email",
+              "field": "email",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Phone",
+              "field": "phone",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Designation",
+              "field": "designation",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Organization",
+              "field": "orgId.name",
+              "type": "dropdown",
+              "api": "/orgs",
+              "apiTitle": "name",
+              "filter": true
+            },
+            {
+              "label": "Roles",
+              "field": "roles",
+              "type": "checkbox",
+              "array": true,
+              "api": "/roles",
+              "apiTitle": "name",
+              "filter": true
+            },
+            {
+              "label": "Projects",
+              "field": "projects",
+              "type": "checkbox",
+              "array": true,
+              "api": "/projects",
+              "apiTitle": "name",
+              "filter": true
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": true
+            },
+            {
+              "label": "Last Login",
+              "field": "lastLoginAt",
+              "type": "Date",
+              "filter": true
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": true
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "roles": {
+          "api": "https://legalobackend.axiomos.in/role",
+          "title": "Role Table",
+          "columns": [
+            {
+              "label": "Role Name",
+              "field": "roleName",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Description",
+              "field": "description",
+              "type": "text",
+              "filter": true
+            },
+            {
+              "label": "Permissions",
+              "field": "permissions",
+              "type": "checkboxPrefilled",
+              "array": "true",
+              "filter": true,
+              "checkBox": [
+                "Read",
+                "Write",
+                "Delete",
+                "Manage",
+                "Moderate",
+                "Inspect",
+                "UAUC Prevention Action",
+                "Workpermit Creation",
+                "UAUC Creation",
+                "Safety Creation",
+                "management:view",
+                "workpermitformat:view",
+                "checklistformat:view",
+                "documentformat:view",
+                "roles.read",
+                "roles.write",
+                "roles.delete",
+                "roles.view",
+                "roles.manage",
+                "roles.inspect",
+                "user.read",
+                "user.write",
+                "user.delete",
+                "user.view",
+                "user.manage",
+                "user.inspect",
+                "labour.read",
+                "labour.write",
+                "labour.delete",
+                "labour.view",
+                "labour.manage",
+                "labour.inspect",
+                "subcontractors.read",
+                "subcontractors.write",
+                "subcontractors.delete",
+                "subcontractors.view",
+                "subcontractors.manage",
+                "subcontractors.inspect",
+                "event.read",
+                "event.write",
+                "event.delete",
+                "event.view",
+                "event.manage",
+                "event.inspect",
+                "inventory.read",
+                "inventory.write",
+                "inventory.delete",
+                "inventory.view",
+                "inventory.manage",
+                "inventory.inspect",
+                "items.read",
+                "items.write",
+                "items.delete",
+                "items.view",
+                "items.manage",
+                "items.inspect",
+                "format.read",
+                "format.write",
+                "format.delete",
+                "format.view",
+                "format.manage",
+                "format.inspect",
+                "project.read",
+                "project.write",
+                "project.delete",
+                "project.view",
+                "project.manage",
+                "project.inspect",
+                "category.read",
+                "category.write",
+                "category.delete",
+                "category.view",
+                "category.manage",
+                "category.inspect",
+                "safetyinduction.read",
+                "safetyinduction.write",
+                "safetyinduction.delete",
+                "safetyinduction.view",
+                "safetyinduction.manage",
+                "safetyinduction.inspect",
+                "tbtmeeting.read",
+                "tbtmeeting.write",
+                "tbtmeeting.delete",
+                "tbtmeeting.view",
+                "tbtmeeting.manage",
+                "tbtmeeting.inspect",
+                "incident.read",
+                "incident.write",
+                "incident.delete",
+                "incident.view",
+                "incident.manage",
+                "incident.inspect",
+                "inspection.read",
+                "inspection.write",
+                "inspection.delete",
+                "inspection.view",
+                "inspection.manage",
+                "inspection.inspect",
+                "specifictraining.read",
+                "specifictraining.write",
+                "specifictraining.delete",
+                "specifictraining.view",
+                "specifictraining.manage",
+                "specifictraining.inspect",
+                "uauc.read",
+                "uauc.write",
+                "uauc.delete",
+                "uauc.view",
+                "uauc.manage",
+                "uauc.inspect",
+                "goodpractices.read",
+                "goodpractices.write",
+                "goodpractices.delete",
+                "goodpractices.view",
+                "goodpractices.manage",
+                "goodpractices.inspect",
+                "violationnotice.read",
+                "violationnotice.write",
+                "violationnotice.delete",
+                "violationnotice.view",
+                "violationnotice.manage",
+                "violationnotice.inspect",
+                "checklist.read",
+                "checklist.write",
+                "checklist.delete",
+                "checklist.view",
+                "checklist.manage",
+                "checklist.inspect",
+                "workpermit.read",
+                "workpermit.write",
+                "workpermit.delete",
+                "workpermit.view",
+                "workpermit.manage",
+                "workpermit.inspect",
+                "workpermitdaily.read",
+                "workpermitdaily.write",
+                "workpermitdaily.delete",
+                "workpermitdaily.view",
+                "workpermitdaily.manage",
+                "workpermitdaily.inspect",
+                "rating.read",
+                "rating.write",
+                "rating.delete",
+                "rating.view",
+                "rating.manage",
+                "rating.inspect",
+                "projects.read",
+                "projects.write",
+                "projects.delete",
+                "projects.view",
+                "projects.manage",
+                "projects.inspect",
+                "trade.read",
+                "trade.write",
+                "trade.delete",
+                "trade.view",
+                "trade.manage",
+                "trade.inspect",
+                "topic.read",
+                "topic.write",
+                "topic.delete",
+                "topic.view",
+                "topic.manage",
+                "topic.inspect",
+                "hazards.read",
+                "hazards.write",
+                "hazards.delete",
+                "hazards.view",
+                "hazards.manage",
+                "hazards.inspect",
+                "tools.read",
+                "tools.write",
+                "tools.delete",
+                "tools.view",
+                "tools.manage",
+                "tools.inspect",
+                "machinetools.read",
+                "machinetools.write",
+                "machinetools.delete",
+                "machinetools.view",
+                "machinetools.manage",
+                "machinetools.inspect",
+                "equipments.read",
+                "equipments.write",
+                "equipments.delete",
+                "equipments.view",
+                "equipments.manage",
+                "equipments.inspect",
+                "ppes.read",
+                "ppes.write",
+                "ppes.delete",
+                "ppes.view",
+                "ppes.manage",
+                "ppes.inspect",
+                "item.read",
+                "item.write",
+                "item.delete",
+                "item.view",
+                "item.manage",
+                "item.inspect",
+                "permitstype.read",
+                "permitstype.write",
+                "permitstype.delete",
+                "permitstype.view",
+                "permitstype.manage",
+                "permitstype.inspect",
+                "prefilledchecklist.read",
+                "prefilledchecklist.write",
+                "prefilledchecklist.delete",
+                "prefilledchecklist.view",
+                "prefilledchecklist.manage",
+                "prefilledchecklist.inspect",
+                "fields.read",
+                "fields.write",
+                "fields.delete",
+                "fields.view",
+                "fields.manage",
+                "fields.inspect",
+                "riskrating.read",
+                "riskrating.write",
+                "riskrating.delete",
+                "riskrating.view",
+                "riskrating.manage",
+                "riskrating.inspect",
+                "role.read",
+                "role.write",
+                "role.delete",
+                "role.view",
+                "role.manage",
+                "role.inspect",
+                "feedback.read",
+                "feedback.write",
+                "feedback.delete",
+                "feedback.view",
+                "feedback.manage",
+                "feedback.inspect",
+                "notifications.read",
+                "notifications.write",
+                "notifications.delete",
+                "notifications.view",
+                "notifications.manage",
+                "notifications.inspect",
+                "safetyreport.read",
+                "safetyreport.write",
+                "safetyreport.delete",
+                "safetyreport.view",
+                "safetyreport.manage",
+                "safetyreport.inspect",
+                "labourRec.read",
+                "labourRec.write",
+                "labourRec.delete",
+                "labourRec.view",
+                "labourRec.manage",
+                "labourRec.inspect",
+                "formfields.read",
+                "formfields.write",
+                "formfields.delete",
+                "formfields.view",
+                "formfields.manage",
+                "formfields.inspect",
+                "apk.read",
+                "apk.write",
+                "apk.delete",
+                "apk.view",
+                "apk.manage",
+                "apk.inspect",
+                "backup.read",
+                "backup.write",
+                "backup.delete",
+                "backup.view",
+                "backup.manage",
+                "backup.inspect",
+                "safetyaudit.read",
+                "safetyaudit.write",
+                "safetyaudit.delete",
+                "safetyaudit.view",
+                "safetyaudit.manage",
+                "safetyaudit.inspect",
+                "safetybudget.read",
+                "safetybudget.write",
+                "safetybudget.delete",
+                "safetybudget.view",
+                "safetybudget.manage",
+                "safetybudget.inspect",
+                "about:view",
+                "projectDashboard:view",
+                "settings:view",
+                "profile:view",
+                "notificationsender:view",
+                "FilesManagement:view"
+              ]
+            }
+          ]
+        },
+        "okgnode": {
+          "api": "https://legalobackend.axiomos.in/okgnodes",
+          "title": "OKG Nodes",
+          "columns": [
+            {
+              "label": "Organization",
+              "field": "orgId.name",
+              "type": "dropdown",
+              "api": "https://legalobackend.axiomos.in/orgs",
+              "apiTitle": "name",
+              "filter": "true"
+            },
+            {
+              "label": "Node ID",
+              "field": "nodeId",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Node Type",
+              "field": "nodeType",
+              "type": "dropdown",
+              "options": ["CITATION", "OBLIGATION", "CONCEPT"],
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Title",
+              "field": "title",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Content",
+              "field": "content",
+              "type": "textarea"
+            },
+            {
+              "label": "Source URI",
+              "field": "sourceUri",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Statute Reference",
+              "field": "statuteReference",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Language",
+              "field": "language",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Jurisdiction",
+              "field": "jurisdiction",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Tags",
+              "field": "tags",
+              "type": "arrayText",
+              "array": "true",
+              "placeholder": "Add tags (press Enter)"
+            },
+            {
+              "label": "Metadata",
+              "field": "metadata",
+              "type": "json",
+              "required": "true"
+            },
+            {
+              "label": "Version",
+              "field": "version",
+              "type": "number",
+              "filter": "true"
+            },
+            {
+              "label": "Status",
+              "field": "status",
+              "type": "dropdown",
+              "options": ["DRAFT", "PUBLISHED", "ARCHIVED"],
+              "filter": "true"
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": "true"
+            },
+            {
+              "label": "Created By",
+              "field": "createdBy.name",
+              "type": "dropdown",
+              "api": "https://legalobackend.axiomos.in/users",
+              "apiTitle": "name",
+              "filter": "true"
+            },
+            {
+              "label": "Updated By",
+              "field": "updatedBy.name",
+              "type": "dropdown",
+              "api": "https://legalobackend.axiomos.in/users",
+              "apiTitle": "name",
+              "filter": "true"
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": "true"
+            },
+            {
+              "label": "Updated At",
+              "field": "updatedAt",
+              "type": "Date",
+              "filter": "true"
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "okgedge": {
+          "api": "https://legalobackend.axiomos.in/okgedges",
+          "title": "OKG Edges",
+          "columns": [
+            {
+              "label": "Organization",
+              "field": "orgId.name",
+              "type": "dropdown",
+              "api": "https://legalobackend.axiomos.in/orgs",
+              "apiTitle": "name",
+              "filter": "true"
+            },
+            {
+              "label": "From Node ID",
+              "field": "fromNodeId",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "To Node ID",
+              "field": "toNodeId",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Edge Type",
+              "field": "edgeType",
+              "type": "dropdown",
+              "options": ["CITES", "REQUIRES", "RELATES_TO"],
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Weight",
+              "field": "weight",
+              "type": "number",
+              "filter": "true"
+            },
+            {
+              "label": "Confidence Score",
+              "field": "confidenceScore",
+              "type": "number",
+              "filter": "true"
+            },
+            {
+              "label": "Created Via",
+              "field": "createdVia",
+              "type": "dropdown",
+              "options": ["MANUAL", "MODEL", "IMPORT"],
+              "filter": "true"
+            },
+            {
+              "label": "Status",
+              "field": "status",
+              "type": "dropdown",
+              "options": ["ACTIVE", "DEPRECATED"],
+              "filter": "true"
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": "true"
+            },
+            {
+              "label": "Created By",
+              "field": "createdBy.name",
+              "type": "dropdown",
+              "api": "https://legalobackend.axiomos.in/users",
+              "apiTitle": "name",
+              "filter": "true"
+            },
+            {
+              "label": "Metadata",
+              "field": "metadata",
+              "type": "json",
+              "required": "true"
+            },
+            {
+              "label": "Version",
+              "field": "version",
+              "type": "number",
+              "filter": "true"
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": "true"
+            },
+            {
+              "label": "Updated At",
+              "field": "updatedAt",
+              "type": "Date",
+              "filter": "true"
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "dpdp_sections": {
+          "api": "https://legalobackend.axiomos.in/dpdp_sections",
+          "title": "DPDP Sections",
+          "columns": [
+            {
+              "label": "Section ID",
+              "field": "section_id",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Category",
+              "field": "category",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Title",
+              "field": "title",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": "true"
+            },
+            {
+              "label": "Updated At",
+              "field": "updatedAt",
+              "type": "Date",
+              "filter": "true"
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "dpdp_citations": {
+          "api": "https://legalobackend.axiomos.in/dpdp_citations",
+          "title": "DPDP Citations",
+          "columns": [
+            {
+              "label": "Node ID",
+              "field": "node_id",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Node Type",
+              "field": "node_type",
+              "type": "dropdown",
+              "options": ["CITATION"],
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Citation Key",
+              "field": "key",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Act",
+              "field": "act",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Jurisdiction",
+              "field": "jurisdiction",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Section",
+              "field": "section",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Title",
+              "field": "title",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Summary",
+              "field": "summary",
+              "type": "textarea",
+              "required": "true"
+            },
+            {
+              "label": "Source Type",
+              "field": "source_type",
+              "type": "dropdown",
+              "options": [
+                "primary_legislation",
+                "subordinate_legislation",
+                "judgment",
+                "guideline",
+                "regulatory_notice"
+              ],
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Effective Date",
+              "field": "effective_date",
+              "type": "Date",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Confidence",
+              "field": "confidence",
+              "type": "dropdown",
+              "options": ["low", "medium", "high"],
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Source URL",
+              "field": "source_url",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Created At",
+              "field": "created_at",
+              "type": "Date",
+              "filter": "true"
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "dpdp_obligations": {
+          "api": "https://legalobackend.axiomos.in/dpdp_obligations",
+          "title": "DPDP Obligations",
+          "columns": [
+            {
+              "label": "Obligation ID",
+              "field": "obligationId",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Title",
+              "field": "title",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Category",
+              "field": "category",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Applies If",
+              "field": "appliesIf",
+              "type": "textarea",
+              "required": "true"
+            },
+            {
+              "label": "Task Owner Role",
+              "field": "taskOwnerRole",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Approver Role",
+              "field": "approverRole",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Task Type",
+              "field": "taskType",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Evidence Required",
+              "field": "evidenceRequired",
+              "type": "boolean",
+              "filter": "true"
+            },
+            {
+              "label": "Evidence Codes",
+              "field": "evidenceCodes",
+              "type": "arrayText",
+              "array": "true",
+              "placeholder": "Add evidence codes (press Enter)"
+            },
+            {
+              "label": "Risk Level",
+              "field": "riskLevel",
+              "type": "dropdown",
+              "options": ["low", "medium", "high", "critical"],
+              "filter": "true"
+            },
+            {
+              "label": "Completion Definition",
+              "field": "completionDefinition",
+              "type": "textarea"
+            },
+            {
+              "label": "Audit Pack Section",
+              "field": "auditPackSection",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": "true"
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": "true"
+            },
+            {
+              "label": "Updated At",
+              "field": "updatedAt",
+              "type": "Date",
+              "filter": "true"
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "dpdp_obligation_nodes": {
+          "api": "https://legalobackend.axiomos.in/dpdp_obligation_nodes",
+          "title": "DPDP Obligation Nodes",
+          "route": "dpdp-obligation-nodes",
+          "columns": [
+            {
+              "label": "Node ID",
+              "field": "node_id",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Node Type",
+              "field": "node_type",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Key",
+              "field": "key",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Title",
+              "field": "title",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Category",
+              "field": "category",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Risk Level",
+              "field": "risk_level",
+              "type": "dropdown",
+              "options": ["low", "medium", "high", "critical"],
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Applies If",
+              "field": "applies_if",
+              "type": "textarea",
+              "required": "true"
+            },
+            {
+              "label": "Audit Pack Section",
+              "field": "audit_pack_section",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Version",
+              "field": "version",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Effective Date",
+              "field": "effective_date",
+              "type": "date",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": "true"
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "date",
+              "filter": "true"
+            },
+            {
+              "label": "Updated At",
+              "field": "updatedAt",
+              "type": "date",
+              "filter": "true"
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        },
+        "dpdp_obligation_citation_map": {
+          "api": "https://legalobackend.axiomos.in/dpdp_obligation_citation_maps",
+          "title": "DPDP Obligation ↔ Citation Mapping",
+          "columns": [
+            {
+              "label": "Obligation ID",
+              "field": "obligation_id",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Obligation Title",
+              "field": "title",
+              "type": "text",
+              "required": "true",
+              "filter": "true"
+            },
+            {
+              "label": "Audit Pack Section",
+              "field": "audit_pack_section",
+              "type": "text",
+              "filter": "true"
+            },
+            {
+              "label": "Evidence Codes",
+              "field": "evidence_codes",
+              "type": "arrayText",
+              "array": "true",
+              "placeholder": "Add evidence codes (press Enter)"
+            },
+            {
+              "label": "Mapped Citations",
+              "field": "mapped_citations",
+              "type": "json",
+              "required": "true"
+            },
+            {
+              "label": "Active",
+              "field": "isActive",
+              "type": "boolean",
+              "filter": "true"
+            },
+            {
+              "label": "Created At",
+              "field": "createdAt",
+              "type": "Date",
+              "filter": "true"
+            },
+            {
+              "label": "Updated At",
+              "field": "updatedAt",
+              "type": "Date",
+              "filter": "true"
+            }
+          ],
+          "actions": {
+            "create": true,
+            "edit": true,
+            "delete": false
+          }
+        }
+      }
+    },
+    "2": {
+      "headerlogo": "https://www.jkumar.com/img/jkumar_logo_white.png",
+      "headerwelcomeMessage": "Welcome Back",
+      "headersubheading": "Stay ahead with real-time safety performance and compliance updates",
+      "formemailLabel": "Email",
+      "formemailType": "text",
+      "formemailPlaceholder": "Enter Your mail Address",
+      "formpasswordLabel": "Password",
+      "formpasswordType": "password",
+      "formpasswordPlaceholder": "Enter Password",
+      "formrememberMeLabel": "Remember Me",
+      "formrememberMeChecked": false,
+      "formforgotPasswordText": "Forgot Your Password?",
+      "buttonslogin": "Login",
+      "buttonsgoogleSignup": "Sign up With Google",
+      "linksregisterText": "Don't have an account?",
+      "linksregisterHref": "/register",
+      "linksregisterLinkText": "Register Here",
+      "errorMessagesinvalidCredentials": "Invalid username or password",
+      "fileFolderConfig": {
+        "rootFolder": "JkumarApp",
+        "folders": [
+          {
+            "key": "formatFiles",
+            "label": "Format Files",
+            "path": "FormatFiles"
+          },
+          {
+            "key": "goodPractices",
+            "label": "Good Practices",
+            "path": "goodpractices"
+          },
+          {
+            "key": "incidentReporting",
+            "label": "Incident Reporting",
+            "path": "incident reporting"
+          },
+          {
+            "key": "induction",
+            "label": "Induction",
+            "path": "induction"
+          },
+          {
+            "key": "labour",
+            "label": "Labour",
+            "path": "labour"
+          },
+          {
+            "key": "permitType",
+            "label": "Permit Types",
+            "path": "permitsType"
+          },
+          {
+            "key": "prefilledChecklist",
+            "label": "Prefilled Checklists",
+            "path": "prefilledChecklist"
+          },
+          {
+            "key": "safetyAudits",
+            "label": "Safety Audits",
+            "path": "safety audits"
+          },
+          {
+            "key": "safetyReport",
+            "label": "Safety Reports",
+            "path": "Safety Report"
+          },
+          {
+            "key": "signatures",
+            "label": "Signatures",
+            "path": "signatures"
+          },
+          {
+            "key": "specificTraining",
+            "label": "Specific Training",
+            "path": "specific training"
+          },
+          {
+            "key": "subcontractors",
+            "label": "Subcontractors",
+            "path": "subcontractors"
+          },
+          {
+            "key": "tbtMeeting",
+            "label": "TBT Meeting",
+            "path": "tbt meeting"
+          },
+          {
+            "key": "uauc",
+            "label": "Observation",
+            "path": "uauc"
+          },
+          {
+            "key": "users",
+            "label": "Users",
+            "path": "users"
+          },
+          {
+            "key": "violations",
+            "label": "Violations",
+            "path": "violations"
+          },
+          {
+            "key": "workPermitDocs",
+            "label": "Work Permit Documents",
+            "path": "work permit documents"
+          }
+        ]
+      },
+      "AboutPage": {
+        "hero": {
+          "badge": "Integrated Site Safety & Compliance OS",
+          "tagline": "Designed for complex projects, strict audits, and real-time site control",
+          "title": "Turn safety observations into clear, accountable actions.",
+          "description": "Axiomos unifies Observations, Work Permits, Toolbox Talks, Inductions, and Incident Reporting into one API-first platform. Create a single source of truth for site safety, enforce SLAs with escalation, and close every loop with clear ownership and audit-ready records.",
+          "pills": [
+            "Observations tracking with SLA & escalation",
+            "End-to-end Work Permit lifecycle",
+            "Induction & TBT evidence logs",
+            "Incident & near-miss management",
+            "Project & portfolio dashboards",
+            "Contractor, subcontractor & labour registry",
+            "Gatepass, trade & skill-wise labour tracking",
+            "Inventory, tools, equipment & PPE control",
+            "Digital inspections, checklists & safety reports",
+            "Good practices, violations & corrective actions",
+            "Meeting & Specific Meeting (TBT / HSE) records",
+            "Risk rating engine aligned with your matrix",
+            "Safety audit, safety budget & KPI monitoring",
+            "Configurable formats, fields & form templates",
+            "40+ secure APIs for users, roles, projects & mobile apps"
+          ]
+        },
+        "stats": [
+          {
+            "value": "10+",
+            "label": "Safety modules connected",
+            "sub": "Observations, Work Permits, TBT, Inductions, Incidents & more"
+          },
+          {
+            "value": "72h",
+            "label": "Typical closure SLA",
+            "sub": "Configurable alert timelines with multi-level escalation"
+          },
+          {
+            "value": "99.9%",
+            "label": "Uptime objective",
+            "sub": "Cloud-native, hardened for critical site operations"
+          },
+          {
+            "value": "API-first",
+            "label": "Secure & extensible",
+            "sub": "Role-based access, full audit trails, and integrations"
+          }
+        ],
+        "primaryFeatures": [
+          {
+            "title": "Observations that actually closes the loop",
+            "body": "Log observations in seconds, assign clear owners, and auto-calculate due dates using your risk model (for example, alertTimeline × escalationAlert.length). The system surfaces what’s overdue, what’s at risk, and who needs to act next."
+          },
+          {
+            "title": "Work Permits without the paperwork",
+            "body": "Digitise the full permit lifecycle with project-wise context. Link hazards and controls, capture signatures and photos, and keep a searchable archive that’s always ready for internal audits and client reviews."
+          },
+          {
+            "title": "Compliance, made visible",
+            "body": "Unify Inductions, Toolbox Talks, and Incident Reports into a single, connected record. Supervisors and HSE heads get a clear view of compliance status by project, contractor, and assignee — in real time."
+          }
+        ],
+        "whyFeatures": [
+          {
+            "title": "Built for real projects",
+            "body": "Project-wise views, offline-friendly forms, and exportable records keep sites moving — even when connectivity is patchy."
+          },
+          {
+            "title": "SLA & escalation engine",
+            "body": "Define alert timelines and escalation chains; the system computes due times (for example: 12h × 4 steps = 48h) and keeps everyone accountable."
+          },
+          {
+            "title": "Governance & auditability",
+            "body": "Immutable logs, role-based access, and consistent data models across modules make audits and compliance reviews straightforward."
+          },
+          {
+            "title": "Fast to deploy",
+            "body": "API-first design, minimal training, and simple integrations into your existing stack — so you see value in weeks, not months."
+          }
+        ],
+        "howItWorks": {
+          "title": "How it works",
+          "steps": [
+            {
+              "label": "Capture",
+              "description": "Log a Observations, Work Permit, incident, or meeting directly from site (mobile-friendly, photo & file uploads). Every record is time-stamped and linked to the right project, location, and contractor."
+            },
+            {
+              "label": "Classify",
+              "description": "Tag each entry by risk level, category, activity, and area. Your risk matrix and checklists standardise how teams report issues across all projects."
+            },
+            {
+              "label": "Assign",
+              "description": "Set clear owners, due dates, and priorities using your SLA and escalation rules. The system can suggest responsible engineers, supervisors, or contractors based on project and risk profile."
+            },
+            {
+              "label": "Collaborate",
+              "description": "Owners add comments, upload photos, and record interim actions. HSE and project teams stay aligned in one thread instead of scattered WhatsApp chats and spreadsheets."
+            },
+            {
+              "label": "Track",
+              "description": "Live dashboards highlight oldest open items, overdue actions, and high-risk observations by project, contractor, and assignee. Filters and exportable views keep reviews and audits structured."
+            },
+            {
+              "label": "Close",
+              "description": "Capture corrective and preventive actions, attach evidence, and complete digital sign-offs. Closure is locked with a full audit trail for internal audits, client reports, and regulatory inspections."
+            },
+            {
+              "label": "Learn & Improve",
+              "description": "Use trends, recurring hazards, and closure performance to refine training, toolbox talks, and controls. Management sees which teams respond quickly, and where additional support is needed."
+            }
+          ]
+        },
+        "security": {
+          "title": "Security & Compliance",
+          "items": [
+            "Role-based access control with least-privilege defaults",
+            "Project, site, and contractor-level data segregation",
+            "All traffic encrypted in transit (HTTPS/TLS)",
+            "Granular activity logs and exportable audit reports",
+            "Configurable approval workflows and digital sign-offs",
+            "IP, device and environment-ready for enterprise hardening"
+          ]
+        },
+        "roadmap": {
+          "title": "Roadmap Highlights",
+          "items": [
+            {
+              "label": "Q3",
+              "text": "Bulk actions on Observations & permits, advanced Excel/PDF exports, SLA & escalation analytics dashboards"
+            },
+            {
+              "label": "Q4",
+              "text": "Mobile app enhancements (offline mode, background sync), custom risk matrices per client, multi-project heatmaps"
+            },
+            {
+              "label": "Q4",
+              "text": "First CCTV integration: camera registry, snapshot ingestion, and manual tagging of unsafe acts linked to Observations"
+            },
+            {
+              "label": "H1",
+              "text": "AI-assisted CCTV: automatic detection of PPE non-compliance and zone intrusions, auto-creating observations with evidence"
+            },
+            {
+              "label": "H1",
+              "text": "Deeper integrations: HRIS & payroll (for staff/labour mapping), SSO (OAuth/SAML), and webhook automations for alerts"
+            },
+            {
+              "label": "H2",
+              "text": "Cross-module analytics: incident trends, contractor scorecards, closure performance, and risk hot-spot mapping"
+            },
+            {
+              "label": "H2",
+              "text": "Configuration studio: no-code form fields, checklists, and workflows so HSE teams can adapt the system without code changes"
+            },
+            {
+              "label": "Future",
+              "text": "Computer-vision labour ID & attendance PoC, linking face recognition events to site access, inductions, and Observations history"
+            },
+            {
+              "label": "Future",
+              "text": "Automated client & regulatory packs: scheduled PDF/Excel exports for monthly safety reviews, audits, and board reporting"
+            }
+          ]
+        },
+        "cta": {
+          "title": "Ready to simplify safety & compliance?",
+          "description": "Get a guided demo or start a pilot on one site — we will help you migrate in under a week and align it to your existing processes.",
+          "primaryButtonLabel": "Request a demo",
+          "primaryButtonSubject": "Safety Platform Demo",
+          "secondaryButtonLabel": "View documentation",
+          "secondaryButtonHref": "#"
+        }
+      }
+    }
+  },
+  "createdAt": "2026-01-13T12:43:37.037Z",
+  "updatedAt": "2026-01-20T12:41:45.314Z",
+  "__v": 0
+}
