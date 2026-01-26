@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { X, Eye, Plus, Pencil, Trash2 } from "lucide-react";
 import DetailsModal from "@/components/DetailedModalView";
 import TABLE_CONFIG from "@/configs/okgNodesTable.config";
+import FormModal from "@/components/FormModal";
 
 // Utility to get nested field value
 const getNestedValue = (obj, path) => {
@@ -205,6 +206,9 @@ const DataTable = () => {
   const [filters, setFilters] = useState({});
   const [dropdownOptions, setDropdownOptions] = useState({});
 
+  const [openForm, setOpenForm] = useState(false); // for edit and create form as per table structure
+  const [editRecord, setEditRecord] = useState(null);
+
   useEffect(() => {
     fetchData(); // Initial data fetch
     fetchDropdownOptions(); // Fetch dropdown options for filtes having api
@@ -303,9 +307,12 @@ const DataTable = () => {
             </div>
           </div>
 
-          {/* Right: Action */}
           {TABLE_CONFIG.actions.create && (
             <button
+              onClick={() => {
+                setEditRecord(null);
+                setOpenForm(true);
+              }}
               className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium text-white
              shadow-sm transition-all
              hover:bg-blue-700 hover:shadow-md
@@ -318,10 +325,11 @@ const DataTable = () => {
         </div>
 
         {/* Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <div className="overflow-x-auto">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+          {/* Scroll Container */}
+          <div className="max-h-[90vh] overflow-auto">
             <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-50 sticky top-0 z-10">
                 <tr>
                   {TABLE_CONFIG.columns.map((col) => (
                     <th
@@ -372,7 +380,10 @@ const DataTable = () => {
                       <div className="flex items-center gap-2">
                         {TABLE_CONFIG.actions.edit && (
                           <button
-                            onClick={() => console.log("Edit:", row._id)}
+                            onClick={() => {
+                              setEditRecord(row);
+                              setOpenForm(true);
+                            }}
                             className="group inline-flex h-9 w-9 items-center justify-center rounded-lg
                  bg-emerald-600 text-white
                  shadow-sm transition-all duration-200
@@ -418,6 +429,18 @@ const DataTable = () => {
         <DetailsModal
           data={selectedRecord}
           onClose={() => setSelectedRecord(null)}
+        />
+      )}
+
+      {/* Form Modal for Create/Edit */}
+      {openForm && (
+        <FormModal
+          initialData={editRecord}
+          dropdownOptions={dropdownOptions} // 👈 pass it
+          onClose={() => setOpenForm(false)}
+          onSubmit={(data) => {
+            console.log("Form Submitted:", data);
+          }}
         />
       )}
     </div>
