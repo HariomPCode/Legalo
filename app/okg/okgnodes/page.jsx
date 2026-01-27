@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { X, Eye, Plus, Pencil, Trash2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus, Pencil, Trash2 } from "lucide-react";
 import DetailsModal from "@/components/DetailedModalView";
 import TABLE_CONFIG from "@/configs/okgNodesTable.config";
 import FormModal from "@/components/FormModal";
@@ -209,18 +209,28 @@ const DataTable = () => {
   const [openForm, setOpenForm] = useState(false); // for edit and create form as per table structure
   const [editRecord, setEditRecord] = useState(null);
 
+  const [page, setPage] = useState(1);
+  const [limit] = useState(20);
+  const [meta, setMeta] = useState(null);
+
   useEffect(() => {
-    fetchData(); // Initial data fetch
-    fetchDropdownOptions(); // Fetch dropdown options for filtes having api
-  }, []);
+    fetchData();
+    fetchDropdownOptions();
+  }, [page]);
 
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(TABLE_CONFIG.api);
+      const response = await fetch(
+        `${TABLE_CONFIG.api}?page=${page}&limit=${limit}`,
+      );
+
       if (!response.ok) throw new Error("Failed to fetch data");
+
       const result = await response.json();
+
       setData(result.data || []);
+      setMeta(result.meta || null);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -262,6 +272,21 @@ const DataTable = () => {
       [field]: value,
     }));
   };
+
+  // Pagination logic to show limited page numbers
+  function getVisiblePages(current, total) {
+    const delta = 1; // pages before and after current
+    const pages = [];
+
+    const start = Math.max(1, current - delta);
+    const end = Math.min(total, current + delta);
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+
+    return pages;
+  }
 
   const filteredData = applyFilters(data, filters);
 
@@ -415,6 +440,75 @@ const DataTable = () => {
               </tbody>
             </table>
           </div>
+
+          {/* Pagination */}
+          {meta && (
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-6 py-4 border-t bg-white">
+              {/* Left Info */}
+              <div className="text-sm text-gray-500">
+                Page{" "}
+                <span className="font-semibold text-gray-900">{meta.page}</span>{" "}
+                of{" "}
+                <span className="font-semibold text-gray-900">
+                  {meta.totalPages}
+                </span>{" "}
+                ·{" "}
+                <span className="font-semibold text-gray-900">
+                  {meta.total}
+                </span>{" "}
+                records
+              </div>
+
+              {/* Right Controls */}
+              <div className="flex items-center rounded-lg border bg-gray-50 p-1 shadow-sm">
+                {/* Previous */}
+                <button
+                  disabled={meta.page === 1}
+                  onClick={() => setPage((p) => p - 1)}
+                  className="flex items-center justify-center w-9 h-9 rounded-md
+                   text-gray-500 hover:text-gray-900
+                   hover:bg-white transition-all
+                   disabled:opacity-40 disabled:cursor-not-allowed
+                   focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  aria-label="Previous page"
+                >
+                  <ChevronLeft size={18} />
+                </button>
+
+                {/* Page Numbers */}
+                {getVisiblePages(meta.page, meta.totalPages).map((pageNum) => (
+                  <button
+                    key={pageNum}
+                    onClick={() => setPage(pageNum)}
+                    className={`min-w-[36px] h-9 px-3 mx-0.5 rounded-md text-sm font-medium
+            transition-all duration-200
+            ${
+              meta.page === pageNum
+                ? "bg-blue-600 text-white shadow-sm scale-105"
+                : "text-gray-600 hover:bg-white hover:text-gray-900"
+            }
+            focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                  >
+                    {pageNum}
+                  </button>
+                ))}
+
+                {/* Next */}
+                <button
+                  disabled={meta.page === meta.totalPages}
+                  onClick={() => setPage((p) => p + 1)}
+                  className="flex items-center justify-center w-9 h-9 rounded-md
+                   text-gray-500 hover:text-gray-900
+                   hover:bg-white transition-all
+                   disabled:opacity-40 disabled:cursor-not-allowed
+                   focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  aria-label="Next page"
+                >
+                  <ChevronRight size={18} />
+                </button>
+              </div>
+            </div>
+          )}
 
           {filteredData.length === 0 && (
             <div className="text-center py-12">
