@@ -1,6 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Plus, Pencil, Trash2 } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Plus,
+  Pencil,
+  Trash2,
+  ArrowUp,
+  ArrowDown,
+} from "lucide-react";
 import DetailsModal from "@/components/DetailedModalView";
 import TABLE_CONFIG from "@/configs/okgNodesTable.config";
 import FormModal from "@/components/FormModal";
@@ -39,19 +47,35 @@ const applyFilters = (data, filters) => {
           return value === filterValue;
 
         case "Date":
-          if (!value) return false;
-          const dateValue = new Date(value);
-          const fromDate = filterValue.from ? new Date(filterValue.from) : null;
-          const toDate = filterValue.to ? new Date(filterValue.to) : null;
-
-          if (fromDate && dateValue < fromDate) return false;
-          if (toDate && dateValue > toDate) return false;
           return true;
 
         default:
           return true;
       }
     });
+  });
+};
+
+const applySorting = (data, sortConfig) => {
+  const { field, direction } = sortConfig;
+  if (!field) return data;
+
+  const column = TABLE_CONFIG.columns.find((c) => c.field === field);
+  if (!column) return data;
+
+  return [...data].sort((a, b) => {
+    const aVal = getNestedValue(a, field);
+    const bVal = getNestedValue(b, field);
+
+    if (column.type === "Date") {
+      const da = aVal ? new Date(aVal).getTime() : 0;
+      const db = bVal ? new Date(bVal).getTime() : 0;
+      return direction === "asc" ? da - db : db - da;
+    }
+
+    if (aVal < bVal) return direction === "asc" ? -1 : 1;
+    if (aVal > bVal) return direction === "asc" ? 1 : -1;
+    return 0;
   });
 };
 
@@ -119,7 +143,7 @@ const ColumnRenderer = ({ value, type, field }) => {
 
 // Column Filter Component
 const ColumnFilter = ({ column, value, onChange, dropdownOptions }) => {
-  if (!column.filter) return null;
+  if (!column.filter || column.type === "Date") return null;
 
   switch (column.type) {
     case "text":
@@ -167,31 +191,6 @@ const ColumnFilter = ({ column, value, onChange, dropdownOptions }) => {
           <option value="false">No</option>
         </select>
       );
-
-    case "Date":
-      return (
-        <div className="flex gap-1">
-          <input
-            type="date"
-            value={value?.from || ""}
-            onChange={(e) =>
-              onChange(column.field, { ...value, from: e.target.value })
-            }
-            className="w-1/2 px-1 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-            placeholder="From"
-          />
-          <input
-            type="date"
-            value={value?.to || ""}
-            onChange={(e) =>
-              onChange(column.field, { ...value, to: e.target.value })
-            }
-            className="w-1/2 px-1 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-            placeholder="To"
-          />
-        </div>
-      );
-
     default:
       return null;
   }
@@ -205,6 +204,10 @@ const DataTable = () => {
   const [selectedRecord, setSelectedRecord] = useState(null);
   const [filters, setFilters] = useState({});
   const [dropdownOptions, setDropdownOptions] = useState({});
+  const [sortConfig, setSortConfig] = useState({
+    field: null,
+    direction: "asc",
+  }); // for sorting date columns
 
   const [openForm, setOpenForm] = useState(false); // for edit and create form as per table structure
   const [editRecord, setEditRecord] = useState(null);
@@ -289,6 +292,20 @@ const DataTable = () => {
   }
 
   const filteredData = applyFilters(data, filters);
+  const finalData = applySorting(filteredData, sortConfig);
+
+  const toggleSort = (field) => {
+    const column = TABLE_CONFIG.columns.find((c) => c.field === field);
+
+    // 🚫 Allow sorting ONLY for Date columns
+    if (!column || column.type !== "Date") return;
+
+    setSortConfig((prev) => ({
+      field,
+      direction:
+        prev.field === field && prev.direction === "asc" ? "desc" : "asc",
+    }));
+  };
 
   if (loading) {
     return (
@@ -359,26 +376,50 @@ const DataTable = () => {
                   {TABLE_CONFIG.columns.map((col) => (
                     <th
                       key={col.field}
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      className="px-6 py-3 text-xs font-medium text-gray-500 uppercase"
                     >
                       <div className="space-y-2">
-                        <div>{col.label}</div>
+                        {/* Header label */}
+                        {col.type === "Date" ? (
+                          <button
+                            onClick={() => toggleSort(col.field)}
+                            className="flex items-center gap-1 hover:text-gray-900"
+                          >
+                            {col.label}
+
+                            {sortConfig.field === col.field &&
+                              (sortConfig.direction === "asc" ? (
+                                <ArrowUp size={14} />
+                              ) : (
+                                <ArrowDown size={14} />
+                              ))}
+                          </button>
+                        ) : (
+                          <div className="text-gray-500 cursor-default">
+                            {col.label}
+                          </div>
+                        )}
+
+                        {/* Filter (unchanged) */}
                         <ColumnFilter
                           column={col}
                           value={filters[col.field]}
-                          onChange={handleFilterChange}
+                          onChange={(f, v) =>
+                            setFilters((prev) => ({ ...prev, [f]: v }))
+                          }
                           dropdownOptions={dropdownOptions}
                         />
                       </div>
                     </th>
                   ))}
+
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filteredData.map((row) => (
+                {finalData.map((row) => (
                   <tr
                     key={row._id}
                     onClick={() => setSelectedRecord(row)}
@@ -480,7 +521,7 @@ const DataTable = () => {
                   <button
                     key={pageNum}
                     onClick={() => setPage(pageNum)}
-                    className={`min-w-[36px] h-9 px-3 mx-0.5 rounded-md text-sm font-medium
+                    className={`min-w-9 h-9 px-3 mx-0.5 rounded-md text-sm font-medium
             transition-all duration-200
             ${
               meta.page === pageNum

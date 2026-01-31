@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Dynamic Form Engine",
+  title: "LegaloAI",
 };
 
 export default function RootLayout({ children }) {
