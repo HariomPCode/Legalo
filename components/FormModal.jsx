@@ -37,7 +37,6 @@ export default function FormModal({
 
   const handleSubmit = () => {
     onSubmit(formData);
-    onClose();
   };
 
   const renderInput = (col) => {

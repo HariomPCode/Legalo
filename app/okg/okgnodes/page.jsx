@@ -269,11 +269,48 @@ const DataTable = () => {
     setDropdownOptions(options);
   };
 
-  const handleFilterChange = (field, value) => {
-    setFilters((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+  // to handle form submission for create and edit
+  const handleFormSubmit = async (formData) => {
+    try {
+      setLoading(true);
+
+      const isEdit = Boolean(editRecord);
+
+      const url = isEdit
+        ? `${TABLE_CONFIG.api}/${editRecord._id}`
+        : TABLE_CONFIG.api;
+
+      const method = isEdit ? "PATCH" : "POST";
+
+      const response = await fetch(url, {
+        method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          isEdit ? "Failed to update record" : "Failed to create record",
+        );
+      }
+
+      await response.json(); // optional but good practice
+
+      // ✅ Success cleanup
+      setOpenForm(false);
+      setEditRecord(null);
+      setSelectedRecord(null);
+
+      // ✅ Refresh table data
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Pagination logic to show limited page numbers
@@ -571,11 +608,12 @@ const DataTable = () => {
       {openForm && (
         <FormModal
           initialData={editRecord}
-          dropdownOptions={dropdownOptions} // 👈 pass it
-          onClose={() => setOpenForm(false)}
-          onSubmit={(data) => {
-            console.log("Form Submitted:", data);
+          dropdownOptions={dropdownOptions}
+          onClose={() => {
+            setOpenForm(false);
+            setEditRecord(null);
           }}
+          onSubmit={handleFormSubmit}
         />
       )}
     </div>
