@@ -7,7 +7,7 @@ function ServiceCard({ moduleKey, module, count }) {
       className="card group hover:-translate-y-1 transition-all duration-300"
     >
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex-center">
+        <div className="w-10 h-10 bg-blue-50  text-blue-600 rounded-lg flex-center">
           <i className={`fas ${module.icon}`} />
         </div>
 
