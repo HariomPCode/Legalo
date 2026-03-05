@@ -1,0 +1,25 @@
+.hero-bg {
+  background: radial-gradient(circle at top, #dbeafe, transparent 60%);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #1d4ed8, #6366f1);
+}
+
+.center {
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}

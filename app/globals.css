@@ -1,1 +1,15 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "../styles/theme.css";
+
+@import "../styles/buttons.css";
+@import "../styles/layout.css";
+@import "../styles/typography.css";
+@import "../styles/cards.css";
+@import "../styles/utilities.css";
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}

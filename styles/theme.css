@@ -1,0 +1,36 @@
+:root {
+  /* BRAND COLORS */
+
+  --color-primary: #1d4ed8;
+  --color-primary-hover: #1e40af;
+  --color-accent: #6366f1;
+
+  /* BACKGROUNDS */
+
+  --bg-main: #f8fafc;
+  --bg-section: #f1f5f9;
+  --bg-card: #ffffff;
+
+  /* TEXT */
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  /* BORDER */
+
+  --border-color: #e2e8f0;
+
+  /* RADIUS */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  /* SHADOWS */
+
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
