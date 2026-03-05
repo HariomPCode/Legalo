@@ -1,6 +1,6 @@
 import MODULES from "@/data/modules";
 import CONFIG from "@/Json/JsonBackend";
-import DynamicTable from "@/components/services/DynamicTable";
+import DynamicTable from "@/components/Services/DynamicTable";
 import Link from "next/link";
 import EmptyState from "@/components/EmptyState";
 

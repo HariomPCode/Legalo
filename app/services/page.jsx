@@ -1,5 +1,5 @@
 import MODULES from "@/data/modules";
-import ServiceCard from "@/components/services/ServiceCard";
+import ServiceCard from "@/components/Services/ServiceCard";
 
 async function getCounts() {
   const counts = {};
