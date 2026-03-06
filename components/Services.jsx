@@ -1,5 +1,5 @@
-import SERVICES from "@/data/Services";
 import Link from "next/link";
+import SERVICES from "@/data/Services";
 
 function Services() {
   return (

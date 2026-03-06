@@ -1,6 +1,5 @@
 "use client";
-
-import config from "@/Json/JsonBackend";
+import About from "@/data/about";
 
 const ICONS = [
   <svg
@@ -85,7 +84,7 @@ const ICONS = [
 ];
 
 export default function AboutPage() {
-  const about = config.data[2].AboutPage;
+  const about = About;
 
   return (
     <div className="bg-white text-gray-800">
